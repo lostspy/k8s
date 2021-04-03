@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-prod
+  labels:
+    rampcode: deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: nginx
+      env: dev
+  template:
+    metadata:
+      labels:
+        name: nginx
+        env: dev
+    spec:
+      containers:
+        - name: dev-containers
+          image: nyp219/nginx
+          ports:
+            - containerPort: 80
