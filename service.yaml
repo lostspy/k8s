@@ -3,15 +3,14 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: my-app
-  name: app
+    name: prod
 spec:
   ports:
   - port: 80
     protocol: TCP
     targetPort: 80
   selector:
-    app: my-app
+    name: prod
   type: NodePort
 status:
   loadBalancer: {}
